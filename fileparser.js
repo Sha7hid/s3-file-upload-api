@@ -1,6 +1,6 @@
 const { Upload } = require("@aws-sdk/lib-storage");
 const { S3Client } = require("@aws-sdk/client-s3");
-const Transform = require('stream').Transform;
+const Transform = require(`stream`).Transform;
 
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
