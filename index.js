@@ -5,7 +5,7 @@ require('dotenv').config();
 app.set('json spaces', 5); // to pretify json response
 
 const PORT = process.env.PORT;
-const fileparser = require('./fileparser');
+const parsefile = require('./fileparser.js');
 
 app.get('/', (req, res) => {
   res.send(`
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/upload', async (req, res) => {
-  await fileparser(req)
+  await parsefile(req)
   .then(data => {
     res.status(200).json({
       message: "Success",
@@ -32,7 +32,9 @@ app.post('/api/upload', async (req, res) => {
     res.status(400).json({
       message: "An error occurred.",
       error
+     
     })
+    console.log(error)
   })
 });
 
